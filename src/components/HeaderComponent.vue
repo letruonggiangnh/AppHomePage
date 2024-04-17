@@ -25,14 +25,13 @@ import axios from "axios";
 const router = useRouter();
 const imgUrl = ref("");
 const companyCode = router.currentRoute._rawValue.params.companyCode;
-console.log(companyCode);
+
 const params = new URLSearchParams([["companyCode", companyCode]]);
 axios
   .get("http://localhost:5000/api/Company/GetCompanyLogo", {
     params,
   })
   .then((response) => {
-    console.log(response.data);
     imgUrl.value = response.data;
   });
 </script>
